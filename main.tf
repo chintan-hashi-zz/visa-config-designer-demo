@@ -1,3 +1,9 @@
+provider "aws" {
+  version = "~> 2.0"
+  region  =  "us-west-1"
+}
+
+
 module "ec2_instance" {
   source  = "app.terraform.io/hc-se-demo-chintan/ec2-instance/aws"
   version = "2.18.0"
@@ -7,5 +13,5 @@ module "ec2_instance" {
   key_name = "cgosalia-aws-key"
   name = "cgosalia-vault-test1"
   subnet_id = "subnet-024d03616522c6a61"
-  vpc_security_group_ids = "sg-049cb0ce979def91b"
+  vpc_security_group_ids = ["sg-049cb0ce979def91b"]
 }
