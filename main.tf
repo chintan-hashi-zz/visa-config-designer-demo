@@ -6,7 +6,7 @@ provider "aws" {
 
 module "ec2_instance" {
   source  = "app.terraform.io/hc-se-demo-chintan/ec2-instance/aws"
-  version = "2.18.0"
+  version = "2.19.0"
 
   ami = "ami-059fd73d4594fa21c"
   instance_type = "t2.medium"
