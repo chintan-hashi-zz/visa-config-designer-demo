@@ -58,9 +58,8 @@ module "security_group_2" {
 
 module "ebs_volume" {
   source  = "app.terraform.io/hc-se-demo-chintan/ebs-volume/aws"
-  version = "1.1.0"
+  version = "1.3.0"
 
   instance_id = module.ec2_instance.id
   size = 20
-  availability_zone = module.ec2_instance.availability_zone
 }
