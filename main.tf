@@ -16,7 +16,7 @@ module "ec2_instance" {
   key_name = "cgosalia-aws-key"
   name = "cgosalia-vault-test1"
   subnet_id = "subnet-024d03616522c6a61"
-  vpc_security_group_ids = [ module.security_group.this_security_group_id, module.security_group_2.this_security_group_id ]
+  vpc_security_group_ids = concat(module.security_group.this_security_group_id, module.security_group_2.this_security_group_id)
 }
 
 module "elb" {
