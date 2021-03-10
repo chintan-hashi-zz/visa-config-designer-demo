@@ -31,7 +31,7 @@ module "security_group" {
   description = "TLS traffic"
   from_port = 8080
   name = "tls-sg-cgosalia"
-  Protocol = "TCP"
+  protocol = "TCP"
   rule_description = "allowing TLS traffic"
   to_port = 8090
   vpc_id = "vpc-00e43c5433b4eb92c"
