@@ -9,7 +9,7 @@ provider "aws" {
 // Modules
 module "ec2_instance" {
   source  = "app.terraform.io/hc-se-demo-chintan/ec2-instance/aws"
-  version = "2.19.0"
+  version = "2.20.0"
 
   ami = "ami-059fd73d4594fa21c"
   instance_type = "t2.medium"
@@ -58,8 +58,9 @@ module "security_group_2" {
 
 module "ebs_volume" {
   source  = "app.terraform.io/hc-se-demo-chintan/ebs-volume/aws"
-  version = "1.0.0"
+  version = "1.1.0"
 
   instance_id = module.ec2_instance.id
   size = 20
+  availability_zone = module.ec2_instance.availability_zone
 }
