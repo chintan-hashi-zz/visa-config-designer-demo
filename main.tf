@@ -25,7 +25,15 @@ module "security_group" {
   description = "testing security group"
   ingress_cidr_blocks = "10.10.0.0/16"
   ingress_rules = "https-tcp"
-  ingress_with_cidr_blocks = "[     {       from_port   = 8080       to_port     = 8090       protocol    = "tcp"       description = "User-service ports"       cidr_blocks = "10.10.0.0/16"     } ]"
+  ingress_with_cidr_blocks = [
+	{
+	      	from_port   = 8080
+		to_port     = 8090
+		protocol    = "tcp"
+		description = "User-service ports"
+		cidr_blocks = "10.10.0.0/16"
+	}
+  ]
   name = "test-sg-cgosalia"
   vpc_id = "vpc-00e43c5433b4eb92c"
 }
