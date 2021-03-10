@@ -11,7 +11,6 @@ provider "aws" {
 
 //--------------------------------------------------------------------
 // Modules
-
 module "ec2_instance" {
   source  = "app.terraform.io/hc-se-demo-chintan/ec2-instance/aws"
   version = "2.19.0"
@@ -26,9 +25,8 @@ module "ec2_instance" {
 
 module "elb" {
   source  = "app.terraform.io/hc-se-demo-chintan/elb/aws"
-  version = "2.4.1"
+  version = "2.4.2"
 
-  subnets = ["subnet-024d03616522c6a61", "subnet-07cb41e7b435c8d73"]
   instances = tolist(module.ec2_instance.id)
   internal = "false"
   name = "cgosalia-elb-vault"
@@ -39,11 +37,11 @@ module "security_group" {
   version = "3.28.0"
 
   cidr_block = ["0.0.0.0/0"]
-  description = "allowing vault ports"
+  description = "vault security group"
   from_port = 80
-  name = "cgosalia-vault-instance-sg"
+  name = "cgosalia-visa-vault-sg-group"
   protocol = "TCP"
-  rule_description = "Allowing HTTP traffic"
+  rule_description = "vault security group"
   to_port = 8201
   vpc_id = "vpc-00e43c5433b4eb92c"
 }
