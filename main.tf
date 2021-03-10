@@ -20,12 +20,12 @@ module "ec2_instance" {
   key_name = "cgosalia-aws-key"
   name = "cgosalia-vault-test1"
   subnet_id = "subnet-024d03616522c6a61"
-  vpc_security_group_ids = "module.security_group.this_security_group_id"
+  vpc_security_group_ids = [${module.security_group.this_security_group_id}]
 }
 
 module "security_group" {
   source  = "app.terraform.io/hc-se-demo-chintan/security-group/aws"
-  version = "3.26.0"
+  version = "3.27.0"
 
   cidr_block = ["0.0.0.0/0"]
   description = "TLS traffic"
