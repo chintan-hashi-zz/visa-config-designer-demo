@@ -60,6 +60,6 @@ module "ebs_volume" {
   source  = "app.terraform.io/hc-se-demo-chintan/ebs-volume/aws"
   version = "1.4.0"
 
-  instance_id = module.ec2_instance.id
+  instance_id = tostring(module.ec2_instance.id)
   size = 20
 }
