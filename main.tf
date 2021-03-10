@@ -55,3 +55,11 @@ module "security_group_2" {
   to_port = 100
   vpc_id = "vpc-00e43c5433b4eb92c"
 }
+
+module "ebs_volume" {
+  source  = "app.terraform.io/hc-se-demo-chintan/ebs-volume/aws"
+  version = "1.0.0"
+
+  instance_id = module.ec2_instance.id
+  size = 20
+}
