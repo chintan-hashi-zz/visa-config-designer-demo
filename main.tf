@@ -23,7 +23,7 @@ module "security_group" {
 
   create = "true"
   description = "testing security group"
-  ingress_cidr_blocks = "10.10.0.0/16"
+  ingress_cidr_blocks = [ "10.10.0.0/16" ]
   ingress_rules = [ "https-tcp" ]
   ingress_with_cidr_blocks = [
 	{
