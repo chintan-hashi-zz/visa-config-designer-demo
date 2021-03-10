@@ -21,7 +21,7 @@ module "ec2_instance" {
   key_name = "cgosalia-aws-key"
   name = "cgosalia-vault-test1"
   subnet_id = "subnet-024d03616522c6a61"
-  vpc_security_group_ids = [module.security_group.this_security_group_id]
+  vpc_security_group_ids = list(module.security_group.this_security_group_id)
 }
 
 module "elb" {
@@ -29,7 +29,7 @@ module "elb" {
   version = "2.4.1"
 
   subnets = ["subnet-024d03616522c6a61", "subnet-07cb41e7b435c8d73"]
-  instances = [module.ec2_instance.id]
+  instances = list(module.ec2_instance.id)
   internal = "false"
   name = "cgosalia-elb-vault"
 }
