@@ -17,7 +17,7 @@ module "ec2_instance" {
   key_name = "cgosalia-aws-key"
   name = "cgosalia-vault-test-1"
   subnet_id = "subnet-024d03616522c6a61"
-  vpc_security_group_ids = tolist(module.security_group.this_security_group_id)
+  vpc_security_group_ids = concat(module.security_group.this_security_group_id, module.security_group_2.this_security_group_id)
 }
 
 module "elb" {
@@ -40,5 +40,19 @@ module "security_group" {
   protocol = "TCP"
   rule_description = "cgosalia vault visa test security group"
   to_port = 8201
+  vpc_id = "vpc-00e43c5433b4eb92c"
+}
+
+module "security_group_2" {
+  source  = "app.terraform.io/hc-se-demo-chintan/security-group/aws"
+  version = "3.28.0"
+
+  cidr_block = ["0.0.0.0/0"]
+  description = "visa day 2 operation security group"
+  from_port = 10
+  name = "cgosalia-visa-day2-sg"
+  protocol = "UDP"
+  rule_description = "visa day 2 operation security group"
+  to_port = 100
   vpc_id = "vpc-00e43c5433b4eb92c"
 }
