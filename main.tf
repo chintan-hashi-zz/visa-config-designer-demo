@@ -25,7 +25,7 @@ module "ec2_instance" {
 
 module "elb" {
   source  = "app.terraform.io/hc-se-demo-chintan/elb/aws"
-  version = "2.4.2"
+  version = "2.4.3"
 
   instances = tolist(module.ec2_instance.id)
   internal = "false"
