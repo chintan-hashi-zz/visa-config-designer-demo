@@ -40,7 +40,7 @@ module "security_group" {
 
   cidr_block = ["0.0.0.0/0"]
   description = "allowing vault ports"
-  from_port = 8200
+  from_port = 80
   name = "cgosalia-vault-instance-sg"
   protocol = "TCP"
   rule_description = "Allowing HTTP traffic"
