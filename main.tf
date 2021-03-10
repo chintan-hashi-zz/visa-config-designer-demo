@@ -25,7 +25,7 @@ module "ec2_instance" {
 
 module "security_group" {
   source  = "app.terraform.io/hc-se-demo-chintan/security-group/aws"
-  version = "3.27.0"
+  version = "3.28.0"
 
   cidr_block = ["0.0.0.0/0"]
   description = "TLS traffic"
