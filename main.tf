@@ -28,6 +28,7 @@ module "elb" {
   source  = "app.terraform.io/hc-se-demo-chintan/elb/aws"
   version = "2.4.1"
 
+  subnets = ["subnet-024d03616522c6a61", "subnet-07cb41e7b435c8d73"]
   instances = [module.ec2_instance.id]
   internal = "false"
   name = "cgosalia-elb-vault"
