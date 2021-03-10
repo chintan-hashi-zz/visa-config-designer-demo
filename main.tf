@@ -21,7 +21,7 @@ module "ec2_instance" {
 
 module "security_group" {
   source  = "app.terraform.io/hc-se-demo-chintan/security-group/aws"
-  version = "3.20.0"
+  version = "3.21.0"
 
   create = "true"
   description = "testing security group"
